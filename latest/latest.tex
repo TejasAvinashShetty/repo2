@@ -101,7 +101,7 @@ For open quantum systems \cite{2018EPJST.227..203S} suggest to move from the Hil
 \section{Back to our problem}
 Coming to our problem we have,
 \begin{align}\label{Hilbert:2}
-    \rho &\rightarrow T_{s}\rho T_{s}\\
+    \rho &\rightarrow T_{s}\rho T_{s}^{\dagger}\\
     \dot{\rho} &= - i\comm{H}{\rho} + \gamma
     \sum_{k} \left(L_{m} \rho L_{m}^{\dagger} - 0.5\anticommutator{L_{m}^{\dagger}L_{m}}{ \rho}\right)
 \end{align}
@@ -115,11 +115,12 @@ where $A(t)$ is as given before in equation \eqref{Hilbert_liou:1}. From now on 
 Since,
 \begin{align}
     i\ket{\dot{\psi}(t)}\rangle &= A(t)\ket{\psi(t)}\rangle\\
-    \ket{\psi(t)}\rangle &= e^{-i\int_{0}^{T}dt A(t)}\ket{\psi(0)}
+    \ket{\psi(t)}\rangle &= \mathcal{T}\left(e^{-i\int_{0}^{T} dt A(t)} \right)\ket{\psi(0)}
 \end{align}
-Let $e^{-i\int_{0}^{T}dt A(t)}$ be denoted by $\mathcal{L}$. One can approximate it as follows:
+where $\mathcal{T}$ is the time ordering operator.
+Let $\mathcal{T}\left(e^{-i\int_{0}^{T} dt A(t)} \right)$ be denoted by $\mathcal{L}$. One can approximate it as follows:
 \begin{align}
-    \mathcal{L}&=e^{-i\int_{0}^{T}dt A(t)}\\
+    \mathcal{L}&=\mathcal{T}\left(e^{-i\int_{0}^{T}dt A(t)}\right)\\
     \mathcal{L}&= \prod_{k = N}^{1} \mathcal{L}_{k}\\
 \end{align}
 % $\mathcal{L}&=e^{-i\sum_{0}^{T}\delta t A(t)} = \prod_{k = N}^{1}$
@@ -133,13 +134,13 @@ Let us define a few other terms.
 %    J[g] &= -\phi^{*} \phi\\
 Now we shall define $F[g] = - Tr((T - \mathcal{L})^{\dagger}(T - \mathcal{L}))$ to be our fidelity measure as in \cite{khaneja2005optimal}. Next we need to devise an update step for the control field which would improve the fidelity. Following \cite{khaneja2005optimal} we have 
 \begin{align}\label{update_step}
-    g(t_{k+1})&= g(t_{k}) + \pdv{F}{g(t_{k})} \text{, or}\\
+    g(t_{k+1})&= g(t_{k}) + \epsilon\pdv{F}{g(t_{k})} \text{, or}\\
     g_{k+1} &=    g_{k}   + \epsilon\pdv{F}{g_{k}}
 \end{align}
 $\epsilon$ is  constant which would depend on the speed at which one would want to converge,etc.
 \begin{align}
-    \pdv{F}{g_{k}}&=Tr((T - \pdv{\mathcal{L}}{g_{k}})^{\dagger}(T - \mathcal{L})) + Tr((T - \mathcal{L})^{\dagger}(T - \pdv{\mathcal{L}}{g_{k}})) \\
-    \pdv{F}{g_{k}}&=  Tr((T - \mathcal{L}^{d}_{k})^{\dagger}(T - \mathcal{L})) + Tr((T - \mathcal{L})^{\dagger}(T - \mathcal{L}^{d}_{k})))\\
+    \pdv{F}{g_{k}}&= -Tr((T - \pdv{\mathcal{L}}{g_{k}})^{\dagger}(T - \mathcal{L})) - Tr((T - \mathcal{L})^{\dagger}(T - \pdv{\mathcal{L}}{g_{k}})) \\
+    \pdv{F}{g_{k}}&=  -Tr((T - \mathcal{L}^{d}_{k})^{\dagger}(T - \mathcal{L})) - Tr((T - \mathcal{L})^{\dagger}(T - \mathcal{L}^{d}_{k})))\\
     \mathcal{L}^{d}_{k}=\pdv{\mathcal{L}}{g_{k}} &= \pdv{(\mathcal{L}_{N}\mathcal{L}_{N-1}\ldots  \mathcal{L}_{k}\ldots \mathcal{L}_{2}\mathcal{L}_{1})}{g_{k}}\\
     \mathcal{L}^{d}_{k}=\pdv{\mathcal{L}}{g_{k}} &= \mathcal{L}_{N}\mathcal{L}_{N-1}\ldots \pdv{ \mathcal{L}_{k}}{g_{k}}\ldots \mathcal{L}_{2}\mathcal{L}_{1}\\
     \mathcal{L}^{d}_{k} &= \mathcal{L}_{N}\mathcal{L}_{N-1}\ldots X_{k} \mathcal{L}_{k}\ldots \mathcal{L}_{2}\mathcal{L}_{1}\\
