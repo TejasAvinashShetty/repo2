@@ -51,12 +51,12 @@ The system is assumed to be governed by Lindblad equation.
 
 where,
 \[
- \mathcal{L}(\rho) = \gamma\sum_{k} L_{m} \rho L_{m}^{\dagger} - 0.5 \anticommutator{L_{m}^{\dagger}L_{m}}{ \rho}
+ \mathcal{L}(\rho) = \gamma\sum_{m} L_{m}\thinspace \rho L_{m}^{\dagger} - 0.5 \anticommutator{L_{m}^{\dagger}L_{m}}{ \rho}
 \]
 
 The application of a target unitary $T_{s} $ on the system can be translated in mathematical terms (in open quantum systems formalism) as follows :
 \[
- \rho \rightarrow T_{s}  \rho T_{s} ^{\dagger}
+ \rho \rightarrow T_{s}\thinspace  \rho T_{s} ^{\dagger}
 \]
 %https://www.overleaf.com/1524532912qjmbpfcwcpbv
 So, the question at hand is what must be the form of $ g (t)$
@@ -91,19 +91,19 @@ Following \cite{2012JChPh.136j4103R},   Eqns. \eqref{anal-krotov} could be solve
 For open quantum systems \cite{2018EPJST.227..203S} suggest to move from the Hilbert space to Liouville space, which involves vectorizing the density matrix $\rho$ as $\ket{\psi}\rangle$. So the problem goes from 
  \begin{align}\label{Hilbert_liou:1}
      \rho_{0} &\rightarrow \rho_{f}\\
-     \dot{\rho} &= - i\comm{H}{\rho} + \gamma\sum_{k} \left(L_{m} \rho L_{m}^{\dagger} - 0.5 \anticommutator{L_{m}^{\dagger}L_{m}}{ \rho}\right)\\
+     \dot{\rho} &= - i\comm{H}{\rho} + \gamma\sum_{m} \left(L_{m} \rho L_{m}^{\dagger} - 0.5 \anticommutator{L_{m}^{\dagger}L_{m}}{ \rho}\right)\\
 \text{to, }   
     \ket{\psi_{0}}\rangle &\rightarrow \ket{\tau}\rangle\\
     i\ket{\dot{\psi}(t)}\rangle &= A(t)\ket{\psi(t)}\rangle,  \text{ where}\\
-    A(t) &= I\otimes H(t) - H^{*}(t)\otimes I + i\gamma\sum_{k} \left(
+    A(t) &= I\otimes H(t) - H^{*}(t)\otimes I + i\gamma\sum_{m} \left(
     L_{m}^{T}\otimes L_{m} - 0.5\left( I \otimes L_{m}^{\dagger} L_{m} + L_{m}^{T} L_{m}^{*} \otimes I\right)\right)
 \end{align}
 \section{Back to our problem}
 Coming to our problem we have,
 \begin{align}\label{Hilbert:2}
-    \rho &\rightarrow T_{s}\rho T_{s}^{\dagger}\\
+    \rho &\rightarrow T_{s}\thinspace\rho T_{s}^{\dagger}\\
     \dot{\rho} &= - i\comm{H}{\rho} + \gamma
-    \sum_{k} \left(L_{m} \rho L_{m}^{\dagger} - 0.5\anticommutator{L_{m}^{\dagger}L_{m}}{ \rho}\right)
+    \sum_{m} \left(L_{m} \thinspace \rho L_{m}^{\dagger} - 0.5\anticommutator{L_{m}^{\dagger}L_{m}}{ \rho}\right)
 \end{align}
 Moving to Liouville space one can rewrite it as, 
  \begin{align}\label{Liouville:2}
