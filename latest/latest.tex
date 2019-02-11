@@ -1,12 +1,13 @@
 \chapter{Current progress}
+\section{Introduction}
 Recent developments in quantum dot based qubits have managed to convince us that good quality qubits are just around the corner. \cite{petta} have managed to synthesize Si double quantum dot based qubits which have strong coupling between the single electron in the dot to the photonic field of a microwave cavity. This allows for entanglement and coupling over large distances. This enables us to envision devices which are quantum coupled or entangled with each other even if far away from each other. 
 \par
-Anyway coming back to the point, their set up is a double quantum dot qubit placed in a microwave cavity. This is quite similar to our setup in which we have two qubits place in a cavity.\\ 
+Anyway coming back to the point, their set up is a double quantum dot qubit placed in a microwave cavity. This is quite similar to our setup in which we have two qubits place in a cavity.
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{Figr1a} 
 \end{figure}
-\par
+
 The range of $\omega_{c}$ is about the range of $\omega_{q}$.  As we saw last time it is better to vary the field $g(t)$. Only if it is specific range and not otherwise looking for answers we hit upon \cite{hot_gates}. By performing certain algebraic manipulations they manage to decouple the qubits from the cavity at specific intervals of time. The only way the qubits interact is via the cavity. If one moves the cavity there wont be any path by which they could decohere.This brings about long coherence times, and allows on to operate at "elevated temperatures" 1K to 4K. These temperatures are far higher than what one usually encounters in this field eg.mK. It also would allow us to make classical connections to quantum hardware.Here their system is exactly the same as ours but they require that the qubit level spacing $\omega_{q}$ is less than of $\omega_{c}$. This puts it out of the range of \cite{petta}.
 \par
 Basically we need a way in which one could efficiently develop control field temporal variation to implement a specific gate.  It must be like an algorithm where on performing a series of steps either repeatedly or otherwise one ends up with a control field that performs the unitary we want. This it must be able to do to a tolerable (practical) level of error. Few of the algorithms that do this are:
@@ -23,15 +24,11 @@ Krotov \citep{tannor1992control} and \citep{zhu1998rapid} were combined together
 \par
 GOAT  \citep{machnes2015gradient} combines the best features of all before it to achieve high accuracy without compromising on speed. It is some what more complicated though.
 \par
-To keep things simple lets start with Krotov by \citep{tannor1992control} algorithm in the form given by  \citep{maday2003new}. To gain deeper understanding, first we must generalize our system. So instead of   
+To keep things simple lets start with Krotov by \citep{tannor1992control} algorithm in the form given by  \citep{maday2003new}. To gain deeper understanding, first we must generalize our system. %So instead of   
 
    
 
-
-
-
-
-\section{Introduction}
+\section{Going back to the drawing board}
  Say, we want to apply a target unitary $T_{s} $ on our quantum system. Let the Hamiltonian of our system be $\mathcal{H} $. The Lindbladian operators associated with it be $\{ L_{m} \}$. The Hamiltonian of the system is given by 
 \begin{align}\label{Hamiltonian form}
     H &= H_{0} + g(t) H_{I} 
